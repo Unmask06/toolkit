@@ -1,34 +1,58 @@
+/* base.css*/
 body {
     background-color: #f5f0f0;
 }
 
+main { margin-top: 110px;
+
+}
+
 h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
     font-family: 'Courier New', Courier, monospace;
 }
 
+.header-container {
+  display: flex; /* Use flexbox to create a flex container */
+    justify-content: space-between; /* Distribute items along the main axis (horizontally) */
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    border-bottom: 2px solid #e7e7e7;
+}
+
 /* CSS to resize and align images */
-.adnoc-logo-container, .btme-logo-container {
-  display: inline-block;
-  vertical-align: middle; /* Vertically align the images within their containers */
+
+.header-left img {
+  height: 100px;
+}
+.header-right img {
+  height: 100px;
 }
 
-.adnoc-logo-container img, .btme-logo-container img {
-  max-width: 100%; /* Ensure the image does not exceed the container width */
-  height: auto; /* Maintain aspect ratio and adjust height accordingly */
+.header-center-top {
+  width: 100%;
+  text-align: left;
+  vertical-align: middle;
+  padding-left: 10px;
+
 }
 
-/* Additional CSS to control header layout */
-header {
-  text-align: center; /* Center the logos horizontally within the header */
+.header-center-bottom {
+  width: 100%;
+  text-align: left;
+  vertical-align: middle;
+  padding-left: 10px;
+  background-color: rgb(192, 104, 104);
 }
 
-.adnoc-logo-container {
-  float: left; /* Float the ADNOC logo to the left */
-}
-
-.btme-logo-container {
-  float: right; /* Float the BTME logo to the right */
+.header-center-bottom a {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  padding-inline: 5px;
 }
 

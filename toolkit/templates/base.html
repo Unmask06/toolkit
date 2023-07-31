@@ -9,13 +9,31 @@
 </head>
 <body>
     <header>
-        <div class = "adnoc-logo-container">
-            <img src="{% static 'img/ADNOC.png' %}" alt="ADNOC Logo">
+        <div class = "header-container">
+            <div class = "header-left">
+                <img src="{% static 'img/ADNOC.png' %}" alt="ADNOC Logo">
+            </div>
+            
+            <div class = "header-center">
+                <div class = "header-center-top">
+                    <h1>BTME Tool Kit</h1>
+                </div>
+                <div class = "header-center-bottom">
+                    <nav>
+                        <a href = "{% url 'home' %}">Home</a>
+                        <a href = "{% url 'index' %}">SortX</a>
+                        <a href = "{% url 'index' %}">PDF Finder</a>
+                    </nav>
+                </div>
+            </div>
+
+
+            <div class = "header-right">
+                <img src="{% static 'img/Bilfinger.jpg' %}" alt="BTME Logo">
+            </div>
+            <!-- Common header content goes here -->
         </div>
-        <div class = "btme-logo-container">
-            <img src="{% static 'img/Bilfinger.jpg' %}" alt="BTME Logo">
-        <!-- Common header content goes here -->
-    </header>
+</header>
 
     <main>
         {% block content %}{% endblock %}
