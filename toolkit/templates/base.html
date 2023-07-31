@@ -1,0 +1,28 @@
+<!-- base.html in toolkit/templates--> 
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <header>
+        <div class = "adnoc-logo-container">
+            <img src="{% static 'img/ADNOC.png' %}" alt="ADNOC Logo">
+        </div>
+        <div class = "btme-logo-container">
+            <img src="{% static 'img/Bilfinger.jpg' %}" alt="BTME Logo">
+        <!-- Common header content goes here -->
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <!-- Common footer content goes here -->
+    </footer>
+</body>
+</html>
