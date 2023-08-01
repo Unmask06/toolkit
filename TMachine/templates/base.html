@@ -1,0 +1,43 @@
+<!-- base.html in TMachine/templates-->
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="header-grid-container">
+        <div class="header-grid-left">
+          <img src="{% static 'img/TMachine Logo.png' %}" alt="Logo" />
+        </div>
+
+        <div class="header-grid-center-top">
+          <h2>T Machine</h2>
+        </div>
+
+        <div class="header-grid-center-bottom">
+          <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'sortx' %}">SortX</a>
+            <a href="{% url 'pdfcharm' %}">Pdf Charm</a>
+            <a href="{% url 'calculationsheets' %}">Calculation Sheets</a>
+            <a href="{%url 'suggestions'%}">Suggestions</a>
+          </nav>
+        </div>
+
+        <div class="header-grid-right">
+          <img src="{% static 'img/Bilfinger.jpg' %}" alt="BTME Logo" />
+        </div>
+      </div>
+    </header>
+
+    <main>{% block content %}{% endblock %}</main>
+
+    <footer>
+      <!-- Common footer content goes here -->
+    </footer>
+  </body>
+</html>
