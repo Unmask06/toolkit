@@ -1,9 +1,59 @@
-{% extends 'base.html' %}
-{% block title %} Suggestions {% endblock %}
-{% block content %}
-<h1>Suggestions</h1>
-<p>
-  Users can submit suggestions for the improvement of T-Machine web app.
-</p>
-<p>Suggestions is currently in development. Check back soon for updates!</p>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Progress Update</title>
+    <style>
+        #progress-bar {
+            width: 100%;
+            background-color: #f1f1f1;
+        }
+
+        #progress-bar-inner {
+            width: 0;
+            height: 30px;
+            background-color: #4CAF50;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="progress-bar">
+        <div id="progress-bar-inner"></div>
+    </div>
+    <p id="progress-text">Progress: 0.00%</p>
+    <button id="startBtn">Start Progress</button>
+    <script>
+        async function fetchProgress() {
+            try {
+                const response = await fetch('/update_progress/');
+                const data = await response.json();
+                const progressDiv = document.getElementById('progress-bar-inner');
+                const progressText = document.getElementById('progress-text');
+                const progress = data.progress;
+                progressDiv.style.width = progress + '%';
+                progressText.innerText = `Progress: ${progress.toFixed(2)}%`;
+
+                if (progress < 100) {
+                    // Fetch progress again after a short delay (adjust the interval as needed)
+                    setTimeout(fetchProgress, 100);
+                }
+            } catch (error) {
+                console.error('Error fetching progress:', error);
+            }
+        }
+
+        document.getElementById('startBtn').addEventListener('click', function() {
+            // Initialize progress by making a request to set_progress view
+            fetch('/set_progress/')
+                .then(() => {
+                    // Start fetching progress after a short delay (adjust the interval as needed)
+                    setTimeout(fetchProgress, 100);
+                })
+                .catch(error => console.error('Error setting progress:', error));
+        });
+    </script>
+</body>
+</html>
+

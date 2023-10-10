@@ -8,7 +8,13 @@
 <p>
   SortX is a web application that allows you to sort your files in a directory
   by file type.
+
 </p>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
 <p>SortX is currently in development. Check back soon for updates!</p>
 
 {% endblock %}
